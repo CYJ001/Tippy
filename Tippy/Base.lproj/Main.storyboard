@@ -86,7 +86,18 @@
                             <outletCollection property="gestureRecognizers" destination="CLK-zM-SeU" appends="YES" id="YMc-Ij-ZXx"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tip Calculator" id="1zL-93-ZEI"/>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="1zL-93-ZEI">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="UrA-xE-wvx">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oLD-rn-ug8">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="m9c-o1-9u3" kind="push" id="6vg-8B-4BE"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billField" destination="zhC-P3-scr" id="BF5-56-aVS"/>
                         <outlet property="tipControl" destination="qTp-Lx-nJ6" id="Tge-h2-Qwr"/>
@@ -101,11 +112,53 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="672.5" y="154.5"/>
+            <point key="canvasLocation" x="1259.5" y="154.5"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="CbW-1U-XET">
+            <objects>
+                <viewController id="m9c-o1-9u3" customClass="SettingsViewController" customModule="Tippy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kd6-Me-ryp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="aiT-ke-MpD">
+                                <rect key="frame" x="-2" y="201" width="379" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="18%"/>
+                                    <segment title="20%"/>
+                                    <segment title="25%"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeDefaultValue:" destination="m9c-o1-9u3" eventType="valueChanged" id="0Jw-GO-f1L"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="j5f-sz-xfk" appends="YES" id="MZs-wN-KBe"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="if9-uV-S2o"/>
+                    <connections>
+                        <outlet property="changeValueControl" destination="aiT-ke-MpD" id="ZxW-Uc-uoe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hlR-Yb-xs5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="j5f-sz-xfk">
+                    <connections>
+                        <action selector="changeDefaultValue:" destination="m9c-o1-9u3" id="cvf-ft-UfU"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1756.5" y="127.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F10-f1-cHJ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xHi-OM-ZRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2pc-2h-47a" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="L4m-5l-aBK">
@@ -114,10 +167,9 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="exj-fc-9Iv"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="osI-0P-ar3"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xHi-OM-ZRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="85.5" y="154.5"/>
         </scene>
